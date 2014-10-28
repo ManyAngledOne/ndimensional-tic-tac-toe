@@ -17,9 +17,7 @@ class board():
             p.remove((0,)*self.dim)
             for n in p:
                 try:
-                    print "thingy"
                     if self.state[tuple(add(n, pt))] == symbol:
-                        print "dude"
                         try:
                             if self.state[tuple(add(multiply(n,2), pt))] == symbol:
                                 points += 1
@@ -28,13 +26,11 @@ class board():
                             pass
                         try:
                             behind = tuple(subtract(pt, n))
-                            print "first", behind
                             if not any((x < 0 for x in behind)):
                                 try:
                                     p.remove(behind)
                                 except ValueError:
                                     pass
-                                print "second", behind
                                 if self.state[tuple(subtract(pt, n))] == symbol:
                                     points += 1
                                     print n, self.state[tuple(subtract(pt, n))], tuple(subtract(pt, n))
